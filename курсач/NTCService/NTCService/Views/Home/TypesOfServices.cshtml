@@ -1,0 +1,43 @@
+﻿@model PagedList.IPagedList<NTCService.TypesNTCServices>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Типи послуг";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 align="center">Типи послуг</h2>
+
+
+@using (Html.BeginForm("Index", "TypesNTCServices", FormMethod.Get))
+{
+    <p>
+        <strong>Пошук за назвою</strong>
+        @Html.TextBox("SearchByName", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <input type="submit" value="Знайти" class="btn btn-default" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Назва", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_type_NTCservice)
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

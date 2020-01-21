@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Додаткові опції";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Додаткові опції</h3>
+<br />
+@Html.ActionLink("Резервне копіювання бази даних", "BackupDatabase")
+<br />
+@Html.ActionLink("Відновлення бази даних", "RestoreDatabase")
+<br />
+@Html.ActionLink("Експорт журналу у Excel", "Export")
+

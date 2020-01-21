@@ -1,0 +1,94 @@
+﻿@model PagedList.IPagedList<NTCService.NTCWorkers>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Інженери";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Інженери</h2>
+
+<p>
+    @Html.ActionLink("Додати", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "NTCWorkers", FormMethod.Get))
+{
+    <p>
+        <strong>Пошук за ПІБ</strong>
+        @Html.TextBox("SearchByName", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за тел.</strong>
+        @Html.TextBox("SearchByNumb", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за Email</strong>
+        @Html.TextBox("SearchByMail", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за Skype ID</strong>
+        @Html.TextBox("SearchBySkype", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <input type="submit" value="Знайти" class="btn btn-default" />
+}
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("ПІБ", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Тел", "Index", new { sortOrder = ViewBag.PhoneNumbSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Skype ID", "Index", new { sortOrder = ViewBag.SkypeSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Досвід", "Index", new { sortOrder = ViewBag.ExperienceSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Ставка", "Index", new { sortOrder = ViewBag.SalarySortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_NTCworker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_number_NTCworker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_NTCworker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.skype_NTCworker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.experience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.salary)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.id_NTCworker }) |
+                @Html.ActionLink("Деталі", "Details", new { id = item.id_NTCworker }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.id_NTCworker })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

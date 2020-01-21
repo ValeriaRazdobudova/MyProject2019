@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Звітність";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <h3 align="center">Звітність</h3>
+    <br />
+    Html.RenderAction("GeneralProfit");
+    Html.RenderAction("ProfitPerMonth");
+    Html.RenderAction("GeneralAmountClients");
+    Html.RenderAction("GeneralAmountEquipment");
+    Html.RenderAction("GeneralAmountEquipmentProviders");
+    Html.RenderAction("GeneralAmountSales");
+    Html.RenderAction("GeneralAmountWorkers");
+    Html.RenderAction("GeneralPayWorkerSalary");
+    Html.RenderAction("GeneralPayWorkerPercentage");
+}

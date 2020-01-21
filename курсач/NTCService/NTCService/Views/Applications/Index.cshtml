@@ -1,0 +1,39 @@
+﻿@model IEnumerable<NTCService.Application>
+
+@{
+    ViewBag.Title = "Заявки";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Заявки</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Тел")
+        </th>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_number_NTCworker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_NTCworker)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.id_application }) |
+                @Html.ActionLink("Деталі", "Details", new { id = item.id_application }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.id_application })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />

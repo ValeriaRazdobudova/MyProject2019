@@ -1,0 +1,58 @@
+﻿@model NTCService.NTCequipmentInStock
+
+@{
+    ViewBag.Title = "Видалення";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Видалити</h2>
+
+<h3>Ви впевнені?</h3>
+<div>
+    <h4>Техніка та ПЗ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Постачальник")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCequipmentProviders.name_NTCprovider)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Тип")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypesNTCequipment.name_type_NTCequipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Назва")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_NTCequipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("К-сть на складі")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount_NTCequipment)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Видалити" class="btn btn-default" /> |
+        @Html.ActionLink("Повернутися до списку", "Index")
+    </div>
+    }
+</div>

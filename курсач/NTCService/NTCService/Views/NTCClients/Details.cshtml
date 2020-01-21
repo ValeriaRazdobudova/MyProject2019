@@ -1,0 +1,51 @@
+﻿@model NTCService.NTCClients
+
+@{
+    ViewBag.Title = "Деталі";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Деталі</h2>
+
+<div>
+    <h4>Клієнт</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("ПІБ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_NTCclient)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Тел")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone_number_NTCclient)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_NTCclient)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Skype ID")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skype_NTCclient)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.id_NTCclient }) |
+    @Html.ActionLink("Повернутися до списку", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model NTCService.NTCequipmentInStock
+
+@{
+    ViewBag.Title = "Деталі";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Деталі</h2>
+
+<div>
+    <h4>Техніка та ПЗ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Постачальник")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCequipmentProviders.name_NTCprovider)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Тип")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypesNTCequipment.name_type_NTCequipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Назва")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_NTCequipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("К-сть на складі")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount_NTCequipment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.id_NTCequipment }) |
+    @Html.ActionLink("Повернутися до списку", "Index")
+</p>

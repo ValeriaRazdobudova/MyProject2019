@@ -1,0 +1,10 @@
+﻿@model IEnumerable<NTCService.Models.General_pay_workers_salary_Result>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    @Html.DisplayName("Загальна сума зарлатні, що виплачена працівникам (грн): ")
+    @Html.DisplayFor(model => item.General_pay_workers_salary)
+}

@@ -1,0 +1,51 @@
+﻿@model NTCService.NTCServices
+
+@{
+    ViewBag.Title = "Деталі";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Деталі</h2>
+
+<div>
+    <h4>Послуга</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Обладнання")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCequipmentInStock.name_NTCequipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Тип")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypesNTCServices.name_type_NTCservice)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Назва")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_NTCservice)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ціна, грн")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price_NTCservice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_NTCservice }) |
+    @Html.ActionLink("Повернутися до списку", "Index")
+</p>

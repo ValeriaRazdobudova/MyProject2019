@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ntcserviceModelContainer" CdmEntityContainer="ntcserviceEntities1">
+    <FunctionImportMapping FunctionImportName="General_amount_clients" FunctionName="Хранилище ntcserviceModel.General_amount_clients">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_amount_clients_Result1">
+          <ScalarProperty Name="General_amount_clients" ColumnName="General_amount_clients" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_amount_equipment" FunctionName="Хранилище ntcserviceModel.General_amount_equipment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_amount_equipment_Result">
+          <ScalarProperty Name="General_amount_equipment" ColumnName="General_amount_equipment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_amount_equipment_providers" FunctionName="Хранилище ntcserviceModel.General_amount_equipment_providers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_amount_equipment_providers_Result1">
+          <ScalarProperty Name="General_amount_equipment" ColumnName="General_amount_equipment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_amount_sales" FunctionName="Хранилище ntcserviceModel.General_amount_sales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_amount_sales_Result">
+          <ScalarProperty Name="General_amount_sales" ColumnName="General_amount_sales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_amount_workers" FunctionName="Хранилище ntcserviceModel.General_amount_workers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_amount_workers_Result">
+          <ScalarProperty Name="General_amount_workers" ColumnName="General_amount_workers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_pay_workers_percentage" FunctionName="Хранилище ntcserviceModel.General_pay_workers_percentage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_pay_workers_percentage_Result">
+          <ScalarProperty Name="General_pay_workers" ColumnName="General_pay_workers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_pay_workers_salary" FunctionName="Хранилище ntcserviceModel.General_pay_workers_salary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_pay_workers_salary_Result">
+          <ScalarProperty Name="General_pay_workers" ColumnName="General_pay_workers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="General_profit" FunctionName="Хранилище ntcserviceModel.General_profit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.General_profit_Result1">
+          <ScalarProperty Name="General_profit" ColumnName="General_profit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Profit_per_month" FunctionName="Хранилище ntcserviceModel.Profit_per_month">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.Profit_per_month_Result">
+          <ScalarProperty Name="Profit_per_month" ColumnName="Profit_per_month" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище ntcserviceModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище ntcserviceModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище ntcserviceModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище ntcserviceModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище ntcserviceModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ntcserviceModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище ntcserviceModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище ntcserviceModel.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

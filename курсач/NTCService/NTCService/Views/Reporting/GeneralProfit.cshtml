@@ -1,0 +1,10 @@
+﻿@model IEnumerable<NTCService.Models.General_profit_Result>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    @Html.DisplayName("Загальний прибуток (грн): ")
+    @Html.DisplayFor(model => item.General_profit)
+}

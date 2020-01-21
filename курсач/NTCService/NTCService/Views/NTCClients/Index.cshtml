@@ -1,0 +1,83 @@
+﻿@model PagedList.IPagedList<NTCService.NTCClients>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Клієнти";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Клієнти</h2>
+
+<p>
+    @Html.ActionLink("Додати", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "NTCClients", FormMethod.Get))
+{
+    <p>
+        <strong>Пошук за ПІБ</strong>
+        @Html.TextBox("SearchByName", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за тел.</strong>
+        @Html.TextBox("SearchByNumb", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за Email</strong>
+        @Html.TextBox("SearchByMail", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за Skepe ID</strong>
+        @Html.TextBox("SearchBySkype", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <input type="submit" value="Знайти" class="btn btn-default" />
+}
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("ПІБ", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Тел", "Index", new { sortOrder = ViewBag.PhoneNumbSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Skype ID", "Index", new { sortOrder = ViewBag.SkypeSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_NTCclient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_number_NTCclient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_NTCclient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.skype_NTCclient)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.id_NTCclient }) |
+                @Html.ActionLink("Деталі", "Details", new { id = item.id_NTCclient }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.id_NTCclient })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<NTCService.Models.General_amount_workers_Result>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    @Html.DisplayName("К-сть працівників: ")
+    @Html.DisplayFor(model => item.General_amount_workers)
+}

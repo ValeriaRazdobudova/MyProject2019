@@ -1,0 +1,76 @@
+﻿@model PagedList.IPagedList<NTCService.NTCequipmentProviders>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Постачальники";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Постачальники</h2>
+
+<p>
+    @Html.ActionLink("Додати", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "NTCequipmentProviders", FormMethod.Get))
+{
+    <p>
+        <strong>Пошук за назвою</strong>
+        @Html.TextBox("SearchByName", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <input type="submit" value="Знайти" class="btn btn-default" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Назва", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Тел", "Index", new { sortOrder = ViewBag.PhoneNumbSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Сайт", "Index", new { sortOrder = ViewBag.WebsiteSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Назва", "Index", new { sortOrder = ViewBag.EmailSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Адреса", "Index", new { sortOrder = ViewBag.AddressSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_NTCprovider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_number_NTCprovider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.website_NTCprovider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_NTCprovider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address_NTCprovider)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.id_NTCprovider }) |
+                @Html.ActionLink("Деталі", "Details", new { id = item.id_NTCprovider }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.id_NTCprovider })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

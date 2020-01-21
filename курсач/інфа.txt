@@ -1,0 +1,12 @@
+https://www.youtube.com/watch?v=hCnhlUNR9rc - for procedures
+
+(PagedList, PagedList.MVC) or X.PagedList(асинхрон.) - for paging
+
+EPPlus - for xml
+_____________________________________________________________________________
+
+admin
+Adm!neng1@gmail.com
+
+user
+Usereng_1@gmail.com

@@ -1,0 +1,101 @@
+﻿@model  PagedList.IPagedList<NTCService.NTCJournal>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Журнал";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 align="center">Журнал</h2>
+
+<p>
+    @Html.ActionLink("Додати", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "NTCJournal", FormMethod.Get))
+{
+    <p>
+        <strong>Пошук за послугою</strong>
+        @Html.TextBox("SearchByService", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за клієнтом</strong>
+        @Html.TextBox("SearchByClient", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <p>
+        <strong>Пошук за інженером</strong>
+        @Html.TextBox("SearchByWorker", ViewBag.CurrentFilter as string, new { @class = "form-control text-box single-line" })
+    </p>
+    <input type="submit" value="Знайти" class="btn btn-default" />
+}
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Клієнт", "Index", new { sortOrder = ViewBag.ClientSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Послуга", "Index", new { sortOrder = ViewBag.ServicestSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Інженер", "Index", new { sortOrder = ViewBag.WorkerSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Дата", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Час", "Index", new { sortOrder = ViewBag.TimeSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("К-сть обладнання", "Index", new { sortOrder = ViewBag.AmountSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Загальна сума", "Index", new { sortOrder = ViewBag.PriceSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Відсоток інженера", "Index", new { sortOrder = ViewBag.ManagerPersentSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NTCClients.name_NTCclient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NTCServices.name_NTCservice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NTCWorkers.name_NTCworker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_NTCjournal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time_NTCjournal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount_NTCequipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NTCworker_percentage)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.id_NTCjournal }) |
+                @Html.ActionLink("Деталі", "Details", new { id = item.id_NTCjournal }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.id_NTCjournal })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

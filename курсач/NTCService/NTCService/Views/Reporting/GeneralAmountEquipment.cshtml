@@ -1,0 +1,10 @@
+﻿@model IEnumerable<NTCService.Models.General_amount_equipment_Result>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    @Html.DisplayName("К-сть товарів на складі: ")
+    @Html.DisplayFor(model => item.General_amount_equipment)
+}

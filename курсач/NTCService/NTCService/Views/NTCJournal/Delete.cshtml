@@ -1,0 +1,90 @@
+﻿@model NTCService.NTCJournal
+
+@{
+    ViewBag.Title = "Видалення";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Видалити</h2>
+
+<h3>Ви впевнені?</h3>
+<div>
+    <h4>Журнал</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Клієнт")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCClients.name_NTCclient)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Послуга")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCServices.name_NTCservice)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Інженер")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCWorkers.name_NTCworker)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Дата")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_NTCjournal)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Час")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time_NTCjournal)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("К-сть обладнання")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount_NTCequipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Загальна сума")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Відсоток менеджера")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTCworker_percentage)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Видалити" class="btn btn-default" /> |
+        @Html.ActionLink("Повернутися до списку", "Index")
+    </div>
+    }
+</div>
